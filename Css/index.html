@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Contact Me Form</title>
+    <style>
+      body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111010;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+<body>
+
+<div class="contact-form">
+    <h2>Contact Me</h2>
+    <form action="#" method="post" name="contact-form" onsubmit="return validateForm()">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required pattern="[A-Za-z]+" title="Please enter only alphabetical characters">
+  
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required pattern="[A-Za-z]+" title="Please enter only alphabetical characters">
+  
+      <label for="mobileNo">Mobile Number:</label>
+      <input type="tel" id="mobileNo" name="mobileNo" required pattern="\d{10}" title="Please enter a 10-digit mobile number">
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+  
+      <input type="submit" value="Submit">
+  </form>
+    <!-- <form action="#" method="post" name="contact-form" onsubmit="return validateForm()">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+  
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+  
+      <label for="mobileNo">Mobile Number:</label>
+      <input type="tel" id="mobileNo" name="mobileNo" required pattern="\d{10}" title="Please enter a 10-digit mobile number">
+  
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+  
+      <input type="submit" value="Submit">
+  </form>   -->
+    <!-- <form action="#" method="post" name="contact-form">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="mobileNo">Mobile Number:</label>
+        <input type="tel" id="mobileNo" name="mobileNo" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <input type="submit" value="Submit">
+    </form> -->
+</div>
+
+<script>
+  function validateForm() {
+        var firstName = document.forms["contact-form"]["firstName"].value;
+        var lastName = document.forms["contact-form"]["lastName"].value;
+        var mobileNo = document.forms["contact-form"]["mobileNo"].value;
+        var email = document.forms["contact-form"]["email"].value;
+        var message = document.forms["contact-form"]["message"].value;
+
+        // Character validation for first name and last name
+        if (!/^[A-Za-z]+$/.test(firstName)) {
+            alert("Please enter only alphabetical characters for the first name");
+            return false;
+        }
+
+        if (!/^[A-Za-z]+$/.test(lastName)) {
+            alert("Please enter only alphabetical characters for the last name");
+            return false;
+        }
+
+        // Basic form validation for other fields
+        if (firstName === "" || lastName === "" || mobileNo === "" || email === "" || message === "") {
+            alert("All fields must be filled out");
+            return false;
+        }
+
+        // Custom validation for mobile number (10 digits)
+        if (!/^\d{10}$/.test(mobileNo)) {
+            alert("Please enter a valid 10-digit mobile number");
+            return false;
+        }
+
+        // You can add more advanced email validation if needed
+
+        return true;
+    }
+      // function validateForm() {
+      //     // Basic form validation using JavaScript
+      //     var firstName = document.forms["contact-form"]["firstName"].value;
+      //     var lastName = document.forms["contact-form"]["lastName"].value;
+      //     var mobileNo = document.forms["contact-form"]["mobileNo"].value;
+      //     var email = document.forms["contact-form"]["email"].value;
+      //     var message = document.forms["contact-form"]["message"].value;
+  
+      //     if (firstName === "" || lastName === "" || mobileNo === "" || email === "" || message === "") {
+      //         alert("All fields must be filled out");
+      //         return false;
+      //     }
+  
+      //     // Custom validation for mobile number (10 digits)
+      //     if (!/^\d{10}$/.test(mobileNo)) {
+      //         alert("Please enter a valid 10-digit mobile number");
+      //         return false;
+      //     }
+  
+      //     // You can add more advanced email validation if needed
+  
+      //     return true;
+      // }
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxrz5V9rfsPXnv8dRy-8WzbniPMytgoAbH9Ql0lTa6XhklgSBCt5u_65SziBwJw-nOlFQ/exec"; // Replace with the URL from Step 1
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.forms["contact-form"];
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const successMessage = "Thank you! Your form has been submitted successfully. We'll Connect Shortly";
+        alert(successMessage);
+
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then(() => {
+            window.location.reload();
+            window.location.href = 'http://dabhihitesh.prafulchauhan.com';
+          })
+          .catch((error) => console.error("Error!", error.message));
+    });
+  });
+</script>
+
+</body>
+</html>
